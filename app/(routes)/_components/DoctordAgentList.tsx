@@ -1,0 +1,27 @@
+"use client"
+import React from 'react'
+import { Button } from '@/components/ui/button'
+import { AIDoctorAgents } from '../../../shared/list'
+import DoctorAgentCard from './DoctorAgentCard'
+
+
+
+
+function DoctorsAgentList(){
+    return (
+        <div className='mt-10'>
+            <h2 className='font-bold text-xl'>AI Specialist Doctor</h2> 
+
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-5 hover: shadow-lg transition-shadow '>
+                {AIDoctorAgents.map((doctor, index) => (
+                    <div key={index}>
+                        <DoctorAgentCard doctorAgent={doctor}/>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+export default DoctorsAgentList
+ 
