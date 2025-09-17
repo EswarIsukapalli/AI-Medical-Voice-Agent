@@ -34,7 +34,7 @@ function HistoryList(){
         <div className='flex items-center flex-col justify-center p-7 border border-dashed rounded-2xl border-2'>
             <Image src={'/medical-assistance.png'} alt="Medical assistance" width={120} height={120} className="mx-auto" />
             <h2 className='font-bold text-xl mt-2'>No Recent Consultations</h2>
-            <p className='text-left'>It looks like you haven't consulted with any doctors yet.</p>
+            <p className='text-left'>It looks like you haven&apos;t consulted with any doctors yet.</p>
             <AddNewSessioDailog/>
         </div>
         :<div>

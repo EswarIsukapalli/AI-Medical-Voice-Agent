@@ -4,7 +4,7 @@ import { doctorAgent } from './DoctorAgentCard'
 
 type props={
     doctorAgent: doctorAgent
-    setSelectedDoctor:any
+    setSelectedDoctor:(doctor: doctorAgent)=>void
     selectedDoctor?: doctorAgent
 }
 function SuggestedDoctorCard({doctorAgent, setSelectedDoctor, selectedDoctor}: props){

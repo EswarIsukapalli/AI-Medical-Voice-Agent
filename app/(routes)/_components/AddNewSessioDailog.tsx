@@ -14,7 +14,7 @@ import {
   } from "@/components/ui/dialog"
 import { Textarea } from '@/components/ui/textarea'
 import { ArrowRight, Loader2 } from 'lucide-react'
-import DoctorAgentCard, { doctorAgent } from './DoctorAgentCard'
+import { doctorAgent } from './DoctorAgentCard'
 import SuggestedDoctorCard from './SuggestedDoctorCard'
 import { useRouter } from 'next/navigation'
 

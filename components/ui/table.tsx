@@ -1,10 +1,5 @@
 import * as React from "react"
 
-type ElementProps<T extends keyof JSX.IntrinsicElements> =
-  React.HTMLAttributes<JSX.IntrinsicElements[T] extends never ? never : any> & {
-    className?: string
-  }
-
 export function Table({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) {
   return (
     <table

@@ -40,7 +40,9 @@ export default function MedicalVoiceAgent() {
 
 
     useEffect(()=>{
-        sessionId&&GetSessionDetails();
+        if (sessionId) {
+            GetSessionDetails();
+        }
     },[sessionId])
 
     useEffect(() => {
@@ -186,7 +188,7 @@ export default function MedicalVoiceAgent() {
                         setCurrentRole(role);
                     }
                     else if(transcriptType=='final'){
-                        setMessages((prev:any) => [...(prev || []), {role:role,text:transcript}])
+                        setMessages((prev) => [...(prev || []), {role:role,text:transcript}])
                         setLiveTranscript("");
                         setCurrentRole(null);
                     }

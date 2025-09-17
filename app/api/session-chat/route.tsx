@@ -47,9 +47,13 @@ export async function GET(req: NextRequest) {
 
         }
         
+        const userEmail = user?.primaryEmailAddress?.emailAddress;
+        if (!userEmail) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
         const result = await db.select().from(sessionChartTable)
         .where(and(
-            eq(sessionChartTable.createdBy, user?.primaryEmailAddress?.emailAddress!),
+            eq(sessionChartTable.createdBy, userEmail),
             eq(sessionChartTable.sessionId, sessionId)
         ))
         .orderBy(desc(sessionChartTable.id));

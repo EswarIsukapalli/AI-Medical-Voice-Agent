@@ -13,7 +13,7 @@ export async function POST(req:NextRequest){
 
         //Check if user already exists
         const users = await db.select().from(usersTable)
-        //@ts-ignore
+        // @ts-expect-error Drizzle typing limitation for Clerk user email accessor
         .where(eq(usersTable.email,user?.primaryEmailAddress?.emailAddress))
 
         //if not then create new user

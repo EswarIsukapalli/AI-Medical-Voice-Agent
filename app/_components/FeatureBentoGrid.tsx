@@ -8,7 +8,6 @@ import {
   IconBrain,
   IconCalendar,
   IconHeartbeat,
-  IconShield,
 } from "@tabler/icons-react";
 import { motion } from "motion/react";
 

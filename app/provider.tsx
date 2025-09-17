@@ -19,7 +19,7 @@ export default function Provider({
 }>) {
 
     const {user} = useUser();
-    const [ userDetail,setUserDetail ] = useState<any>()
+    const [ userDetail,setUserDetail ] = useState<UsersDetail | null>(null)
     useEffect(() => {
      user&&CreateNewUser();
     },[user])
@@ -27,7 +27,7 @@ export default function Provider({
     const CreateNewUser= async()=>{
         const result = await axios.post('/api/users');
         console.log(result.data);
-        setUserDetail(result.data);
+        setUserDetail(result.data as UsersDetail);
     }
 
   return (

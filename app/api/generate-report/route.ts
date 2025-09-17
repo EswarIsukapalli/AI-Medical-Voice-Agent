@@ -64,10 +64,17 @@ Transcript:\n${conversationText}`;
       ],
       temperature: 0.2,
       response_format: { type: "json_object" },
-    } as any);
+      stream: false,
+    });
 
-    const content = response.choices?.[0]?.message?.content ?? "{}";
-    let report: any = {};
+    type ChatCompletionLike = { choices: Array<{ message?: { content?: string | null } }> };
+    let content = "{}";
+    const respUnknown = response as unknown;
+    if (respUnknown && typeof respUnknown === 'object' && 'choices' in (respUnknown as Record<string, unknown>)) {
+      const choices = (respUnknown as ChatCompletionLike).choices;
+      content = choices?.[0]?.message?.content ?? "{}";
+    }
+    let report: Record<string, unknown> = {};
     try {
       report = JSON.parse(content);
     } catch {
